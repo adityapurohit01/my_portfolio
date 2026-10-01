@@ -14,6 +14,7 @@ export type Project = {
   decisions: { problem: string; decision: string }[];
   failureModes: { failure: string; handling: string }[];
   iterations: { attempt: string; issue: string; change: string; evidence: string }[];
+  evidenceMetrics: { label: string; value: string }[];
   trace: { title: string; payload: string };
   next: string[];
 };
@@ -22,6 +23,11 @@ export const projects: Project[] = [
   {
     slug: "ai-builder",
     primitive: "A reusable stateful agent runtime for software tasks: planner + tools + sandbox + verifier + recovery loop.",
+    evidenceMetrics: [
+      { label: "deterministic test cases", value: "34" },
+      { label: "workflow phases", value: "5" },
+      { label: "core tool classes", value: "4" },
+    ],
     iterations: [
       { attempt: "01", issue: "Single-shot generation hides failures and has no recovery boundary.", change: "Introduced explicit planning, coding, verification, and iteration states.", evidence: "State machine is implemented in the repository architecture." },
       { attempt: "02", issue: "Long tasks accumulate irrelevant execution context.", change: "Added context summarization around the agent workflow.", evidence: "Context management is represented as a dedicated component." },
@@ -66,6 +72,12 @@ export const projects: Project[] = [
   {
     slug: "intelliform",
     primitive: "A semantic DOM-understanding and verification layer that can sit underneath browser agents.",
+    evidenceMetrics: [
+      { label: "pipeline layers", value: "9" },
+      { label: "field types", value: "18+" },
+      { label: "framework strategies", value: "4" },
+      { label: "verification retries", value: "3" },
+    ],
     iterations: [
       { attempt: "01", issue: "Naive DOM writes do not reliably update framework-managed state.", change: "Added framework-aware interaction paths.", evidence: "Repository includes framework-specific interaction handling." },
       { attempt: "02", issue: "A browser event can succeed while application state remains unchanged.", change: "Added post-interaction verification.", evidence: "Verifier is a dedicated pipeline stage." },
@@ -110,6 +122,12 @@ export const projects: Project[] = [
   {
     slug: "agentic-dating",
     primitive: "A model-independent multi-agent evaluation harness with MCP tools and local memory/state.",
+    evidenceMetrics: [
+      { label: "synthetic evaluation subjects", value: "6" },
+      { label: "causality score gap", value: "48 pts" },
+      { label: "planted-truth top-3", value: "6/6" },
+      { label: "ablation rank changes", value: "16" },
+    ],
     iterations: [
       { attempt: "01", issue: "Purely generative judging makes scores difficult to audit.", change: "Moved scoring structure into explicit application logic and evidence.", evidence: "Structured scoring and evidence handling are implemented." },
       { attempt: "02", issue: "Multi-agent experiments can become expensive and nondeterministic.", change: "Added deterministic mock mode, spend limits, and concurrency controls.", evidence: "These controls are part of the repository design." },
@@ -154,6 +172,11 @@ export const projects: Project[] = [
   {
     slug: "hierarchical-math-rag",
     primitive: "A structure-aware multimodal retrieval layer for documents where hierarchy and asset ownership matter.",
+    evidenceMetrics: [
+      { label: "hierarchy levels", value: "5+" },
+      { label: "asset types", value: "text + figures" },
+      { label: "retrieval scope", value: "hierarchical" },
+    ],
     iterations: [
       { attempt: "01", issue: "Flat chunking can mix nearby mathematical concepts and figures.", change: "Introduced explicit document hierarchy.", evidence: "Chapter / topic / example structure is modeled directly." },
       { attempt: "02", issue: "Figures can leak across neighboring sections.", change: "Added explicit asset/content ownership relationships.", evidence: "Ownership edges are represented in the repository." },
@@ -198,6 +221,11 @@ export const projects: Project[] = [
   {
     slug: "med-le",
     primitive: "A reusable full-stack pattern for multimodal retrieval applications with explicit service and data boundaries.",
+    evidenceMetrics: [
+      { label: "application layers", value: "5+" },
+      { label: "retrieval controls", value: "4+" },
+      { label: "modalities", value: "text + image" },
+    ],
     iterations: [
       { attempt: "01", issue: "Large retrieval contexts increase latency and dilute relevant evidence.", change: "Added chunking, top-k, metadata filtering, and context limits.", evidence: "Retrieval controls are implemented in the application stack." },
       { attempt: "02", issue: "Retrieved text can contain untrusted instructions.", change: "Added prompt-injection defenses around retrieved context.", evidence: "Prompt-injection handling is an explicit application concern." },
