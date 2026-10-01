@@ -6,6 +6,8 @@ import { projects } from "@/data/portfolio";
 import ArchitectureFlow from "@/components/ArchitectureFlow";
 import AgentStateBar from "@/components/AgentStateBar";
 import TraceSnippet from "@/components/TraceSnippet";
+import EvalDashboard from "@/components/EvalDashboard";
+import IterationLog from "@/components/IterationLog";
 
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
@@ -73,17 +75,21 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
           <section>
             <SectionLabel>Evals &amp; Metrics</SectionLabel>
-            <div className="mt-5 overflow-hidden rounded-2xl border border-white/10">
-              <div className="hidden grid-cols-[1.2fr_1fr_1.8fr] border-b border-white/10 bg-white/[0.025] px-5 py-3 font-mono text-[10px] uppercase tracking-wider text-zinc-600 sm:grid">
-                <span>metric</span><span>state</span><span>note</span>
-              </div>
-              {project.evals.map((item) => (
-                <div key={item.metric} className="grid gap-2 border-b border-white/10 px-5 py-4 last:border-0 sm:grid-cols-[1.2fr_1fr_1.8fr] sm:items-center">
-                  <span className="font-mono text-xs text-zinc-300">{item.metric}</span>
-                  <span className={item.value.includes("Not") || item.value.includes("pending") ? "font-mono text-xs text-zinc-500" : "font-mono text-xs text-cyan-300"}>{item.value}</span>
-                  <span className="text-sm leading-6 text-zinc-600">{item.note}</span>
-                </div>
-              ))}
+            <div className="mt-5">
+              <EvalDashboard metrics={project.evals} />
+              <p className="mt-4 font-mono text-[10px] uppercase tracking-wider text-zinc-700">
+                evaluation state is explicit; unmeasured values are not inferred or embellished
+              </p>
+            </div>
+          </section>
+
+          <section>
+            <SectionLabel>Reusable Primitive</SectionLabel>
+            <div className="mt-5 rounded-2xl border border-cyan-300/15 bg-cyan-300/[0.03] p-6">
+              <p className="max-w-4xl text-base leading-8 text-zinc-400">{project.primitive}</p>
+              <p className="mt-3 font-mono text-[10px] uppercase tracking-wider text-zinc-700">
+                abstraction boundary
+              </p>
             </div>
           </section>
 
@@ -99,6 +105,13 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                   </div>
                 </div>
               ))}
+            </div>
+          </section>
+
+          <section>
+            <SectionLabel>Trade-offs &amp; Iterations</SectionLabel>
+            <div className="mt-5">
+              <IterationLog items={project.iterations} />
             </div>
           </section>
 
