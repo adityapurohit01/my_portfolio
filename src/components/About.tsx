@@ -1,146 +1,67 @@
-"use client";
-
-import { motion } from "framer-motion";
-import LottieAnimation from "./LottieAnimation";
-
-const skills = [
-    "Python", "C++", "JavaScript", "PyTorch", "TensorFlow",
-    "Machine Learning", "Deep Learning", "LLMs", "RAG",
-    "Computer Vision (YOLO/OpenCV)", "FastAPI", "MongoDB"
-];
-
-const timeline = [
-    {
-        year: "May 2026 - July 2026",
-        role: "AI Engineer Intern",
-        company: "Info Edge Ventures",
-        description: "Engineering AI-powered venture intelligence workflows, including automated web crawling and document retrieval for FLC alerting, alongside central repository integrations and backend automation."
-    },
-    {
-        year: "2025 - Present",
-        role: "Project Intern",
-        company: "DRDO — Recruitment Assessment Centre (RAC)",
-        description: "Designing AI-driven recruitment automation workflows. Built semantic matching systems with embeddings and automated candidate shortlisting pipelines."
-    },
-    {
-        year: "June 2025",
-        role: "Tech Intern",
-        company: "Formskart",
-        description: "Developed an AI-based college recommendation system using ML and built a Streamlit application with MySQL analytics."
-    },
-];
+import { capabilityGroups, experience } from "@/data/portfolio";
 
 export default function About() {
-    return (
-        <section id="about" className="py-24 relative">
-            <div className="container mx-auto px-6 max-w-7xl">
-                <div className="glass-panel p-8 md:p-12 rounded-3xl relative overflow-hidden backdrop-blur-md bg-white/5 border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]">
-                <div className="grid md:grid-cols-2 gap-16">
+  return (
+    <>
+      <section id="about" className="mx-auto max-w-7xl px-6 py-28 lg:px-8">
+        <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr]">
+          <div>
+            <p className="text-sm font-medium uppercase tracking-[0.24em] text-violet-300">How I build</p>
+            <h2 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">I care about the layer around the model.</h2>
+            <p className="mt-6 text-lg leading-8 text-zinc-400">My strongest work sits where model behavior meets software engineering: state, tools, memory, retrieval, verification, failure recovery, and production APIs.</p>
+            <p className="mt-5 text-base leading-7 text-zinc-500">The goal is not to make a model look intelligent in a demo. It is to make the overall system useful, inspectable, and increasingly reliable.</p>
+          </div>
 
-                    {/* About & Skills */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                    >
-                        <h2 className="text-4xl md:text-5xl font-bold mb-6">System <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-purple to-neon-pink">Architecture</span> & Skills</h2>
-
-                        <div className="mb-8">
-                            <p className="text-gray-300 leading-relaxed mb-6">
-                                I am a builder focused on <span className="text-neon-cyan font-semibold">Applied Artificial Intelligence</span>. I don't just train models; I engineer complete, end-to-end pipelines. From data ingestion and embedding extraction to vector databases and backend APIs.
-                            </p>
-                            <p className="text-gray-300 leading-relaxed">
-                                My current research interests involve Autonomous AI agents, multi-modal systems, and decision-making architectures.
-                            </p>
-                        </div>
-
-                        <div className="flex flex-wrap gap-3">
-                            {skills.map((skill, i) => (
-                                <motion.div
-                                    key={skill}
-                                    initial={{ opacity: 0, scale: 0.8 }}
-                                    whileInView={{ opacity: 1, scale: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: i * 0.05 }}
-                                    className="clay-card px-4 py-2 text-sm text-gray-200"
-                                >
-                                    {skill}
-                                </motion.div>
-                            ))}
-                        </div>
-
-                        {/* Lottie Character */}
-                        <div className="flex justify-center pt-6">
-                            <LottieAnimation src="/developer-animation.json" className="w-48 h-48 md:w-56 md:h-56" />
-                        </div>
-                    </motion.div>
-
-                    {/* Experience Timeline */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="relative pl-8 md:pl-0"
-                        id="experience"
-                    >
-                        <h2 className="text-4xl font-bold mb-10 md:pl-12">Professional <span className="text-neon-cyan">Journey</span></h2>
-
-                        <div className="space-y-10 md:pl-12 border-l-2 border-white/10 ml-4 md:ml-0 relative">
-                            {timeline.map((item, index) => (
-                                <div key={index} className="relative pl-8">
-                                    {/* Timeline Dot */}
-                                    <div className="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-neon-cyan shadow-[0_0_10px_#00f3ff]" />
-
-                                    <span className="text-neon-purple text-sm font-bold tracking-wider mb-1 block">{item.year}</span>
-                                    <h3 className="text-2xl font-bold text-white mb-1">{item.role}</h3>
-                                    <h4 className="text-lg text-gray-400 mb-3">{item.company}</h4>
-                                    <p className="text-gray-400 leading-relaxed">
-                                        {item.description}
-                                    </p>
-                                </div>
-                            ))}
-                        </div>
-                    </motion.div>
-
+          <div className="grid gap-4 sm:grid-cols-2">
+            {capabilityGroups.map((group) => (
+              <div key={group.title} className="rounded-3xl border border-white/10 bg-white/[0.03] p-6">
+                <h3 className="text-lg font-semibold text-white">{group.title}</h3>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {group.items.map((item) => <span key={item} className="rounded-full border border-white/10 px-3 py-1.5 text-xs text-zinc-400">{item}</span>)}
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-                {/* Education */}
-                <motion.div
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="mt-20"
-                    id="education"
-                >
-                    <h2 className="text-4xl md:text-5xl font-bold mb-10">Education</h2>
-
-                    <div className="grid md:grid-cols-2 gap-8">
-                        <div className="clay-card p-8">
-                            <span className="text-neon-purple text-sm font-bold tracking-wider mb-2 block">September 2026 - July 2027</span>
-                            <h3 className="text-2xl font-bold text-white mb-1">Exchange Student</h3>
-                            <h4 className="text-lg text-gray-400 mb-3">National Taiwan University (NTU), Taiwan</h4>
-                            <p className="text-gray-400 leading-relaxed">
-                                Studying as an exchange student at National Taiwan University, ranked #54 globally, with a focus on advanced AI, machine learning, and AI systems.
-                            </p>
-                        </div>
-
-                        <div className="clay-card p-8">
-                            <span className="text-neon-purple text-sm font-bold tracking-wider mb-2 block">2023 - 2027</span>
-                            <h3 className="text-2xl font-bold text-white mb-1">B.Tech Computer Science</h3>
-                            <h4 className="text-lg text-gray-400 mb-3">Bennett University</h4>
-                            <p className="text-gray-400 leading-relaxed">
-                                Focusing on Applied Artificial Intelligence, Neural Networks, and highly scalable inference systems.
-                            </p>
-                        </div>
-                    </div>
-                </motion.div>
-
-
+      <section id="experience" className="mx-auto max-w-7xl px-6 pb-28 lg:px-8">
+        <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr]">
+          <div>
+            <p className="text-sm font-medium uppercase tracking-[0.24em] text-cyan-300">Experience</p>
+            <h2 className="mt-4 text-4xl font-semibold tracking-tight text-white">Where I&apos;ve applied it.</h2>
+          </div>
+          <div className="space-y-4">
+            {experience.map((item) => (
+              <article key={item.company} className="rounded-3xl border border-white/10 bg-white/[0.03] p-6 sm:p-8">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <p className="text-sm text-cyan-300">{item.period}</p>
+                  <p className="text-sm text-zinc-500">{item.company}</p>
                 </div>
-            </div>
-        </section>
-    );
+                <h3 className="mt-3 text-2xl font-semibold text-white">{item.role}</h3>
+                <p className="mt-3 max-w-3xl leading-7 text-zinc-400">{item.detail}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="education" className="mx-auto max-w-7xl px-6 pb-28 lg:px-8">
+        <div className="grid gap-5 md:grid-cols-2">
+          <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-7">
+            <p className="text-xs uppercase tracking-[0.2em] text-violet-300">2026 — 2027</p>
+            <h3 className="mt-3 text-2xl font-semibold text-white">National Taiwan University</h3>
+            <p className="mt-1 text-zinc-400">Exchange student · Taiwan</p>
+            <p className="mt-4 leading-7 text-zinc-500">Advanced coursework and exposure to AI, machine learning, and AI systems in Taiwan.</p>
+          </div>
+          <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-7">
+            <p className="text-xs uppercase tracking-[0.2em] text-violet-300">2023 — 2027</p>
+            <h3 className="mt-3 text-2xl font-semibold text-white">Bennett University</h3>
+            <p className="mt-1 text-zinc-400">B.Tech · Computer Science</p>
+            <p className="mt-4 leading-7 text-zinc-500">Focused on applied AI, machine learning, software engineering, and intelligent systems.</p>
+          </div>
+        </div>
+      </section>
+    </>
+  );
 }
