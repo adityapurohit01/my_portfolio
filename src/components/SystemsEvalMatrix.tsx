@@ -67,7 +67,7 @@ export default function SystemsEvalMatrix() {
             <div className="flex flex-wrap items-center gap-3">
               <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-cyan-300">/evals</p>
               <span className="rounded-full border border-cyan-300/20 bg-cyan-300/[0.06] px-2.5 py-1 font-mono text-[9px] uppercase tracking-wider text-cyan-300">
-                6/8 evaluation signals verified
+                6/8 evaluation signals active
               </span>
             </div>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Evaluation is part of the system.</h2>
