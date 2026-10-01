@@ -61,12 +61,16 @@ export default function Projects() {
               </div>
 
               <div className="mt-6 grid gap-px overflow-hidden rounded-xl border border-white/10 bg-white/10 sm:grid-cols-2">
-                {project.highlights.slice(0, 4).map((highlight, highlightIndex) => (
+                {project.highlights.slice(0, 3).map((highlight, highlightIndex) => (
                   <div key={highlight} className="bg-[#08080a] p-4 text-xs leading-6 text-zinc-600">
                     <span className="mr-2 font-mono text-[9px] text-zinc-700">0{highlightIndex + 1}</span>
                     {highlight}
                   </div>
                 ))}
+                <div className="bg-cyan-300/[0.025] p-4 text-xs leading-6 text-zinc-500 sm:col-span-2">
+                  <span className="mr-2 font-mono text-[9px] text-cyan-300/80">LIMIT</span>
+                  <span className="text-zinc-300">{project.failureModes[0].failure}</span>
+                </div>
               </div>
 
               <div className="mt-5 flex flex-wrap gap-2">
