@@ -1,66 +1,30 @@
 const rows = [
-  {
-    system: "AI Builder",
-    eval: "Coding tasks / pass@1",
-    value: "PENDING",
-    method: "deterministic tests + task harness",
-    next: "SWE-bench Lite subset",
-  },
-  {
-    system: "AI Builder",
-    eval: "Tokens / successful task",
-    value: "UNMEASURED",
-    method: "provider usage telemetry",
-    next: "capture prompt + tool + completion tokens",
-  },
-  {
-    system: "AI Builder",
-    eval: "P95 task latency",
-    value: "UNMEASURED",
-    method: "end-to-end wall clock",
-    next: "100+ representative tasks",
-  },
-  {
-    system: "IntelliForm",
-    eval: "Field precision / recall",
-    value: "PENDING",
-    method: "deterministic labelled fixtures",
-    next: "50+ unseen forms",
-  },
-  {
-    system: "IntelliForm",
-    eval: "Successful completion",
-    value: "PENDING",
-    method: "post-interaction assertions",
-    next: "framework-spanning benchmark",
-  },
-  {
-    system: "Cross-system",
-    eval: "Qualitative behavior",
-    value: "DESIGNED",
-    method: "LLM-as-a-judge + human spot checks",
-    next: "calibrated rubric + agreement report",
-  },
+  { system: "AI Builder", eval: "Coding tasks / pass@1", value: "PENDING", method: "deterministic tests + task harness", next: "SWE-bench Lite subset" },
+  { system: "AI Builder", eval: "Tokens / successful task", value: "UNMEASURED", method: "provider usage telemetry", next: "capture prompt + tool + completion tokens" },
+  { system: "AI Builder", eval: "P95 task latency", value: "UNMEASURED", method: "end-to-end wall clock", next: "100+ representative tasks" },
+  { system: "IntelliForm", eval: "Field precision / recall", value: "PENDING", method: "deterministic labelled fixtures", next: "50+ unseen forms" },
+  { system: "IntelliForm", eval: "Successful completion", value: "PENDING", method: "post-interaction assertions", next: "framework-spanning benchmark" },
+  { system: "Cross-system", eval: "Qualitative behavior", value: "DESIGNED", method: "LLM-as-a-judge + human spot checks", next: "calibrated rubric + agreement report" },
 ];
 
 export default function SystemsEvalMatrix() {
   return (
     <section className="border-y border-white/10 bg-[#060608]">
-      <div className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-        <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between sm:gap-5">
           <div>
             <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-cyan-300">/evals</p>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Evaluation is part of the system.</h2>
-            <p className="mt-3 max-w-3xl text-base leading-7 text-zinc-600">
+            <p className="mt-3 max-w-3xl text-sm leading-6 text-zinc-600 sm:text-base sm:leading-7">
               Published numbers only appear after measurement. Until then, the dashboard shows the exact benchmark and instrumentation needed to produce them.
             </p>
           </div>
-          <div className="font-mono text-[9px] uppercase tracking-[0.18em] text-zinc-700">
+          <div className="font-mono text-[8px] uppercase tracking-[0.16em] text-zinc-700 sm:text-[9px] sm:tracking-[0.18em]">
             deterministic assertions · judge rubric · telemetry
           </div>
         </div>
 
-        <div className="mt-8 overflow-x-auto rounded-2xl border border-white/10">
+        <div className="mt-7 hidden overflow-hidden rounded-2xl border border-white/10 sm:block">
           <div className="min-w-[760px]">
             <div className="grid grid-cols-[1fr_1.2fr_0.9fr_1.3fr_1.3fr] border-b border-white/10 bg-white/[0.02] px-5 py-3 font-mono text-[9px] uppercase tracking-wider text-zinc-700">
               <span>system</span><span>evaluation</span><span>state</span><span>method</span><span>next</span>
@@ -75,6 +39,24 @@ export default function SystemsEvalMatrix() {
               </div>
             ))}
           </div>
+        </div>
+
+        <div className="mt-7 space-y-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:hidden">
+          {rows.map((row) => (
+            <article key={row.system + row.eval} className="bg-[#08080a] p-4">
+              <div className="flex items-start justify-between gap-3">
+                <div>
+                  <div className="font-mono text-[9px] uppercase tracking-wider text-zinc-700">{row.system}</div>
+                  <h3 className="mt-1 text-sm font-medium text-zinc-200">{row.eval}</h3>
+                </div>
+                <span className={row.value === "DESIGNED" ? "shrink-0 font-mono text-[9px] text-cyan-300" : "shrink-0 font-mono text-[9px] text-zinc-600"}>{row.value}</span>
+              </div>
+              <div className="mt-4 grid gap-3 border-t border-white/10 pt-3">
+                <div><div className="font-mono text-[8px] uppercase tracking-wider text-zinc-700">method</div><div className="mt-1 text-xs leading-5 text-zinc-500">{row.method}</div></div>
+                <div><div className="font-mono text-[8px] uppercase tracking-wider text-zinc-700">next</div><div className="mt-1 text-xs leading-5 text-zinc-600">{row.next}</div></div>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>
