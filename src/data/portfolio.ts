@@ -46,7 +46,7 @@ export const projects: Project[] = [
       "Failure context becomes state, not chat history: build/test evidence is captured, summarized, and carried into the next iteration instead of replaying the entire conversation.",
       "Designed around recoverable failures rather than assuming the first generated patch is correct.",
     ],
-    architecture: ["User request", "Planner", "State machine", "Coding agent", "Tool router", "Sandboxed execution", "Build / test verifier", "Failure context → next iteration"],
+    architecture: ["Request boundary", "Planning state", "Approval gate", "Tool execution", "Observed side effects", "Verification", "Failure state", "Context-pruned retry"],
     evals: [
       { metric: "Execution state model", value: "IMPLEMENTED", note: "Explicit IDLE → PLANNING → APPROVAL → CODING → ITERATING workflow is implemented." },
       { metric: "Build / test verification", value: "IMPLEMENTED", note: "Generated code is executed and failures are fed back into the iteration loop." },
@@ -96,7 +96,7 @@ export const projects: Project[] = [
       "The decision layer fails closed: semantic confidence, sensitivity, interactability, and available user data are evaluated before an interaction can execute.",
       "Sensitive-field protections and verification before treating an interaction as successful.",
     ],
-    architecture: ["Page / DOM", "Element scanner", "Semantic classifier", "Decision engine", "Framework-aware interaction", "Verifier", "Site-specific learning store"],
+    architecture: ["Live DOM", "Candidate discovery", "Semantic classification", "Decision boundary", "Framework-aware interaction", "Application-state assertion", "Versioned learning evidence"],
     evals: [
       { metric: "Framework coverage", value: "IMPLEMENTED", note: "React / Vue / Angular / vanilla interaction paths are part of the implementation." },
       { metric: "Post-action verification", value: "IMPLEMENTED", note: "Application state is checked after browser interactions rather than trusting the event alone." },
@@ -146,7 +146,7 @@ export const projects: Project[] = [
       "Evaluation is separated from generation: transcripts become inspectable evidence for downstream scoring, ablation, and judge analysis.",
       "Explicit scoring and ablation-oriented evaluation rather than a single hidden prompt score.",
     ],
-    architecture: ["Public profile evidence", "Fact extraction", "Grounded persona", "Memory", "Agent-agent interaction", "Side review", "Neutral judge", "Fact checker / evidence audit"],
+    architecture: ["Source evidence", "Fact layer", "Grounded persona state", "Persistent memory", "Concurrent interaction", "Immutable transcript", "Evaluation state", "Evidence audit"],
     evals: [
       { metric: "Causality test", value: "PASS · Δ48 points", note: "Positive transcript ~62 vs hostile transcript ~14 on the documented synthetic evaluation." },
       { metric: "Planted-truth test", value: "PASS · 6/6 top-3", note: "Compatible synthetic partner landed in the top 3 for all 6 evaluated people." },
@@ -195,7 +195,7 @@ export const projects: Project[] = [
       "Retrieval context is assembled from scoped graph relationships, making cross-section leakage an observable failure mode.",
       "Scoped retrieval designed to reduce incorrect cross-section context.",
     ],
-    architecture: ["PDF ingestion", "Document structure extraction", "Hierarchical nodes", "Figure / asset extraction", "Knowledge graph", "Scoped retrieval", "Multimodal context assembly", "Answer generation"],
+    architecture: ["Document ingestion", "Hierarchy extraction", "Owned content nodes", "Owned figure assets", "Knowledge graph", "Scope-constrained retrieval", "Context assembly", "Generation"],
     evals: [
       { metric: "Hierarchical vs flat RAG", value: "Benchmark pending", note: "Needs a controlled retrieval comparison on the same corpus." },
       { metric: "Figure retrieval accuracy", value: "Not measured", note: "Should be evaluated independently from text retrieval." },
@@ -244,7 +244,7 @@ export const projects: Project[] = [
       "Retrieved context is treated as untrusted data, with filtering, context budgets, and prompt-injection controls between the knowledge and instruction boundaries.",
       "Retrieval controls including chunking, metadata filtering, context limits, and prompt-injection protections.",
     ],
-    architecture: ["React client", "FastAPI API", "Application services", "Retrieval layer", "Knowledge store", "Multimodal model", "Structured response / report"],
+    architecture: ["Client boundary", "API boundary", "Application services", "Retrieval boundary", "Versioned knowledge state", "Multimodal inference", "Structured response"],
     evals: [
       { metric: "Retrieval quality", value: "Not published", note: "Needs task-specific retrieval and answer-quality evaluation." },
       { metric: "Vision analysis quality", value: "Not benchmarked", note: "Should be measured on a labelled image set before making strong claims." },
