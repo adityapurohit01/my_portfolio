@@ -7,9 +7,22 @@ export default function About() {
         <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
             <p className="font-mono text-[10px] font-medium uppercase tracking-[0.24em] text-cyan-300">/how-i-build</p>
-            <h2 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">I care about the layer around the model.</h2>
-            <p className="mt-6 text-lg leading-8 text-zinc-400">My strongest work sits where model behavior meets software engineering: state, tools, memory, retrieval, verification, failure recovery, and production APIs.</p>
-            <p className="mt-5 text-base leading-7 text-zinc-600">The goal is not to make a model look intelligent in a demo. It is to make the overall system useful, inspectable, and increasingly reliable.</p>
+            <h2 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">I engineer the boundary around the model.</h2>
+            <p className="mt-6 text-lg leading-8 text-zinc-400">LLM output is a probabilistic component inside a deterministic software system. I separate model calls from state transitions, tool execution, persistence, and verification so important side effects have observable boundaries.</p>
+            <p className="mt-5 text-base leading-7 text-zinc-600">Long-running systems need explicit state, bounded context, recoverable failures, provenance, telemetry, and evaluation. The design question is simple: what happens when the model is wrong, slow, inconsistent, or operating on stale context?</p>
+            <div className="mt-7 overflow-hidden rounded-xl border border-white/10 bg-black/40 p-5 font-mono text-[10px] leading-6 text-zinc-500">
+              <div>MODEL</div>
+              <div>↓</div>
+              <div>CONTEXT BOUNDARY</div>
+              <div>↓</div>
+              <div>STATE TRANSITION</div>
+              <div>↓</div>
+              <div>TOOL / SIDE EFFECT</div>
+              <div>↓</div>
+              <div>OBSERVATION → VERIFICATION</div>
+              <div>↓</div>
+              <div>RECOVERY OR COMMIT → TELEMETRY</div>
+            </div>
           </div>
           <div className="grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:grid-cols-2">
             {capabilityGroups.map((group) => (
