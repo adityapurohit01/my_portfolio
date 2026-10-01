@@ -23,7 +23,7 @@ export default function Hero() {
           </div>
 
           <div className="mt-12 flex flex-wrap gap-x-6 gap-y-3 text-sm text-zinc-400">
-            <span>NTU Taiwan</span><span>Info Edge Ventures</span><span>DRDO</span><span>3× hackathon winner</span>
+            <span>NTU Taiwan</span><span>Info Edge Ventures</span><span>DRDO</span><span>4× hackathon winner</span>
           </div>
         </div>
 
