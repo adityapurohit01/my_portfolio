@@ -11,6 +11,12 @@ const skills = [
 
 const timeline = [
     {
+        year: "2026 - Present",
+        role: "AI Engineer Intern",
+        company: "Info Edge Ventures",
+        description: "Engineering AI-powered venture intelligence workflows, including automated web crawling and document retrieval for FLC alerting, alongside central repository integrations and backend automation."
+    },
+    {
         year: "2025 - Present",
         role: "Project Intern",
         company: "DRDO — Recruitment Assessment Centre (RAC)",
