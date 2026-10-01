@@ -21,53 +21,71 @@ export default function Projects() {
   return (
     <section id="projects" className="mx-auto max-w-7xl px-6 py-28 lg:px-8">
       <div className="max-w-3xl">
-        <p className="text-sm font-medium uppercase tracking-[0.24em] text-cyan-300">Selected work</p>
-        <h2 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">Five projects. One theme: systems, not demos.</h2>
-        <p className="mt-5 text-lg leading-8 text-zinc-400">I&apos;d rather show how a system works, what trade-offs it makes, and how it fails than list a long stack of libraries.</p>
+        <p className="font-mono text-[10px] font-medium uppercase tracking-[0.24em] text-cyan-300">/selected-work</p>
+        <h2 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">Systems, not demos.</h2>
+        <p className="mt-5 text-lg leading-8 text-zinc-500">The portfolio is a workbench: inspect architecture, evaluation state, trade-offs, failure modes, and source.</p>
       </div>
 
-      <div className="mt-10 flex flex-wrap gap-2">
+      <div className="mt-8 flex flex-wrap gap-2">
         {filters.map((item) => (
           <button
             key={item}
             type="button"
             onClick={() => setFilter(item)}
             className={filter === item
-              ? "rounded-full border border-cyan-300/50 bg-cyan-300/10 px-4 py-2 text-sm text-cyan-200 transition"
-              : "rounded-full border border-white/10 px-4 py-2 text-sm text-zinc-400 transition hover:border-white/25 hover:text-white"}
+              ? "rounded-lg border border-cyan-300/35 bg-cyan-300/8 px-3 py-2 font-mono text-[10px] uppercase tracking-wider text-cyan-200"
+              : "rounded-lg border border-white/10 bg-white/[0.02] px-3 py-2 font-mono text-[10px] uppercase tracking-wider text-zinc-600 transition hover:border-white/20 hover:text-zinc-300"}
           >
             {item}
           </button>
         ))}
       </div>
 
-      <div className="mt-10 grid gap-6 lg:grid-cols-2">
+      <div className="mt-8 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 lg:grid-cols-2">
         {filtered.map((project, index) => (
-          <article
-            key={project.slug}
-            className={`group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.035] p-7 transition duration-300 hover:-translate-y-1 hover:border-cyan-300/25 hover:bg-white/[0.05] ${index === 0 && filter === "All" ? "lg:col-span-2" : ""}`}
-          >
-            <div className="absolute right-0 top-0 h-40 w-40 rounded-full bg-cyan-400/5 blur-3xl transition group-hover:bg-cyan-400/10" aria-hidden="true" />
+          <article key={project.slug} className={"group relative overflow-hidden bg-[#08080a] p-6 transition hover:bg-[#0a0a0c] " + (index === 0 && filter === "All" ? "lg:col-span-2" : "")}>
+            <div className="absolute inset-y-0 right-0 w-1/2 translate-x-1/3 bg-cyan-300/[0.02] blur-3xl transition group-hover:bg-cyan-300/[0.04]" aria-hidden="true" />
+
             <div className="relative flex h-full flex-col">
               <div className="flex items-center justify-between gap-4">
-                <span className="text-xs font-medium uppercase tracking-[0.2em] text-cyan-300">{project.eyebrow}</span>
-                <span className="rounded-full border border-white/10 px-3 py-1 text-xs text-zinc-500">{project.status}</span>
+                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-cyan-300/80">{project.eyebrow}</span>
+                <span className="font-mono text-[10px] uppercase tracking-wider text-zinc-700">{project.status}</span>
               </div>
-              <h3 className="mt-5 text-3xl font-semibold text-white">{project.title}</h3>
-              <p className="mt-3 max-w-3xl text-base leading-7 text-zinc-300">{project.oneLiner}</p>
-              <div className="mt-6 grid gap-2 sm:grid-cols-2">
-                {project.highlights.slice(0, 4).map((highlight) => (
-                  <div key={highlight} className="rounded-2xl border border-white/10 bg-black/20 p-4 text-sm leading-6 text-zinc-400">{highlight}</div>
+
+              <div className="mt-5 flex items-start justify-between gap-5">
+                <div>
+                  <h3 className="text-2xl font-semibold tracking-tight text-white">{project.title}</h3>
+                  <p className="mt-2 max-w-3xl text-sm leading-7 text-zinc-400">{project.oneLiner}</p>
+                </div>
+                <div className="hidden rounded-lg border border-white/10 bg-black/30 px-2 py-1 font-mono text-[9px] uppercase tracking-wider text-zinc-700 sm:block">sys.{String(index + 1).padStart(2, "0")}</div>
+              </div>
+
+              <div className="mt-6 grid gap-px overflow-hidden rounded-xl border border-white/10 bg-white/10 sm:grid-cols-2">
+                {project.highlights.slice(0, 4).map((highlight, highlightIndex) => (
+                  <div key={highlight} className="bg-[#08080a] p-4 text-xs leading-6 text-zinc-600">
+                    <span className="mr-2 font-mono text-[9px] text-zinc-700">0{highlightIndex + 1}</span>
+                    {highlight}
+                  </div>
                 ))}
               </div>
-              <div className="mt-6 flex flex-wrap gap-2">
+
+              <div className="mt-5 flex flex-wrap gap-2">
                 {project.tech.map((tech) => (
-                  <span key={tech} className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-xs text-zinc-300">{tech}</span>
+                  <span key={tech} className="rounded border border-white/10 px-2 py-1 font-mono text-[9px] text-zinc-600">{tech}</span>
                 ))}
               </div>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Link href={`/projects/${project.slug}`} className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-black transition hover:bg-cyan-200">Technical case study <ArrowUpRight size={15} /></Link>
-                <a href={project.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:border-white/25"><Github size={15} /> GitHub</a>
+
+              <div className="relative mt-7 flex flex-wrap gap-2">
+                <Link href={"/projects/" + project.slug} className="inline-flex items-center gap-2 rounded-lg bg-white px-3 py-2 text-xs font-semibold text-black transition hover:bg-cyan-200">Inspect system <ArrowUpRight size={14} /></Link>
+                <a href={project.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-lg border border-white/10 px-3 py-2 text-xs text-zinc-300 transition hover:border-cyan-300/25 hover:text-white"><Github size={14} /> source</a>
+              </div>
+
+              <div className="pointer-events-none absolute inset-x-4 bottom-20 translate-y-3 rounded-xl border border-cyan-300/10 bg-black/90 p-4 font-mono text-[9px] leading-5 text-zinc-600 opacity-0 backdrop-blur-xl transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                <div className="mb-2 flex items-center justify-between text-[9px] uppercase tracking-wider">
+                  <span className="text-cyan-300/70">wire surface</span>
+                  <span className="text-zinc-700">representative</span>
+                </div>
+                {project.trace.payload.split("\n").slice(0, 7).map((line, lineIndex) => <div key={lineIndex}>{line}</div>)}
               </div>
             </div>
           </article>
