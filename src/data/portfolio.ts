@@ -42,10 +42,10 @@ export const projects: Project[] = [
     ],
     architecture: ["User request", "Planner", "State machine", "Coding agent", "Tool router", "Sandboxed execution", "Build / test verifier", "Failure context → next iteration"],
     evals: [
-      { metric: "Task success / pass@1", value: "Not benchmarked", note: "A reproducible task suite is the next evaluation milestone." },
-      { metric: "Recovery success", value: "Not measured", note: "Instrumentation exists conceptually; published rate is intentionally withheld." },
-      { metric: "Latency / cost per task", value: "Not published", note: "Should be measured across representative coding tasks and models." },
-      { metric: "Execution control", value: "Implemented", note: "Explicit states, approval gates, tool routing, and verification are part of the system." },
+      { metric: "Execution state model", value: "IMPLEMENTED", note: "Explicit IDLE → PLANNING → APPROVAL → CODING → ITERATING workflow is implemented." },
+      { metric: "Build / test verification", value: "IMPLEMENTED", note: "Generated code is executed and failures are fed back into the iteration loop." },
+      { metric: "Pass@1", value: "NOT YET MEASURED", note: "No published SWE-bench / HumanEval result is claimed until a reproducible task harness is run." },
+      { metric: "Latency / cost per task", value: "NOT YET MEASURED", note: "Requires provider telemetry plus end-to-end task timing." },
     ],
     decisions: [
       { problem: "Free-form agent loops make execution difficult to inspect and control.", decision: "Use explicit states and transitions so planning, approval, coding, and verification remain observable." },
@@ -86,10 +86,10 @@ export const projects: Project[] = [
     ],
     architecture: ["Page / DOM", "Element scanner", "Semantic classifier", "Decision engine", "Framework-aware interaction", "Verifier", "Site-specific learning store"],
     evals: [
-      { metric: "Form completion success", value: "Not benchmarked", note: "Needs a fixture set spanning modern framework patterns." },
-      { metric: "Framework coverage", value: "React / Vue / Angular / vanilla", note: "Implementation targets framework-specific behavior rather than generic DOM writes." },
-      { metric: "False positives", value: "Not measured", note: "Particularly important around sensitive or ambiguous fields." },
-      { metric: "Verification", value: "Implemented", note: "Post-interaction state is checked before declaring success." },
+      { metric: "Framework coverage", value: "IMPLEMENTED", note: "React / Vue / Angular / vanilla interaction paths are part of the implementation." },
+      { metric: "Post-action verification", value: "IMPLEMENTED", note: "Application state is checked after browser interactions rather than trusting the event alone." },
+      { metric: "Precision / recall", value: "NOT YET MEASURED", note: "Requires a labelled unseen-form benchmark." },
+      { metric: "False-positive rate", value: "NOT YET MEASURED", note: "Especially important for ambiguous and sensitive fields." },
     ],
     decisions: [
       { problem: "Modern UI frameworks can reject direct DOM value mutation.", decision: "Use framework-aware interaction paths so the application's own event model can observe the change." },
@@ -121,7 +121,7 @@ export const projects: Project[] = [
     description: "I built a multi-stage system that turns profile evidence into grounded personas, simulates agent-agent interactions, stores memory, and evaluates outcomes with explicit scoring logic. The project is intentionally more like an experimental evaluation environment than a chat demo.",
     status: "Flagship",
     tech: ["TypeScript", "MCP", "SQLite/FTS5", "Multi-agent systems", "Zod", "Vitest"],
-    github: "https://github.com/adityapurohit01/agentic-dating",
+    github: "https://github.com/adityapurohit01/standin-agentic-dating",
     highlights: [
       "Profile collection → fact extraction → grounded persona → voice profile → memory → agent-agent date.",
       "Evidence citations and transcript-based judging instead of relying entirely on free-form LLM impressions.",
@@ -130,10 +130,10 @@ export const projects: Project[] = [
     ],
     architecture: ["Public profile evidence", "Fact extraction", "Grounded persona", "Memory", "Agent-agent interaction", "Side review", "Neutral judge", "Fact checker / evidence audit"],
     evals: [
-      { metric: "Deterministic mock mode", value: "Implemented", note: "Supports repeatable system-level tests without consuming model budget." },
-      { metric: "Scoring transparency", value: "Explicit", note: "Scoring logic is represented in application code instead of being only prompt-defined." },
-      { metric: "Human judge agreement", value: "Not published", note: "A larger labelled evaluation set is the next research step." },
-      { metric: "Cost / latency", value: "Not published", note: "Spend limits and concurrency controls are implemented; aggregate reporting remains to be added." },
+      { metric: "Causality test", value: "PASS · Δ48 points", note: "Positive transcript ~62 vs hostile transcript ~14 on the documented synthetic evaluation." },
+      { metric: "Planted-truth test", value: "PASS · 6/6 top-3", note: "Compatible synthetic partner landed in the top 3 for all 6 evaluated people." },
+      { metric: "Ablation analysis", value: "16 rank changes", note: "Profile-only vs transcript-informed rankings differed in 16 positions across the documented 6-person evaluation." },
+      { metric: "Deterministic mock mode", value: "IMPLEMENTED", note: "Enables repeatable system-level tests without consuming model budget." },
     ],
     decisions: [
       { problem: "Purely generative judges can hide where a score came from.", decision: "Keep scoring structure explicit and preserve evidence that supports the decision." },
