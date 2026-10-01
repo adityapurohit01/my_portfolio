@@ -8,20 +8,26 @@ html { scroll-behavior: smooth; background: #050507; }
 body {
   margin: 0;
   background:
-    radial-gradient(circle at 15% 10%, rgba(34, 211, 238, 0.07), transparent 24rem),
-    radial-gradient(circle at 85% 35%, rgba(139, 92, 246, 0.06), transparent 26rem),
+    radial-gradient(circle at 30% 0%, rgba(34, 211, 238, 0.045), transparent 28rem),
     #050507;
   color: #f4f4f5;
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
-::selection { background: rgba(34, 211, 238, 0.2); color: #cffafe; }
+code, pre, kbd, .font-mono {
+  font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+::selection { background: rgba(34, 211, 238, 0.18); color: #cffafe; }
 a, button { -webkit-tap-highlight-color: transparent; }
+button { cursor: pointer; }
 .hero-grid {
   background-image:
-    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
-  background-size: 64px 64px;
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 72px 72px;
   mask-image: linear-gradient(to bottom, black, transparent 85%);
 }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
