@@ -138,8 +138,10 @@ export const experience = [
 
 export const awards = [
   ["Smart India Hackathon 2024", "National Winner"],
+  ["Smart India Hackathon 2025", "National Winner"],
   ["Agentic AI Hackathon 2025", "Winner"],
   ["Global CyberAI Hackathon 2025", "Global Winner"],
+  ["Student Innovation Excellence Award 2025", "Times Now Education Summit"],
   ["Microsoft Innovate", "Top 5 Finalist"],
   ["Smart BU Hackathon", "2× Top 15 Finalist"],
 ];
