@@ -48,7 +48,7 @@ export default function Hero() {
           <div className="grid grid-cols-[72px_minmax(0,1fr)] items-start gap-3 rounded-2xl border border-white/10 bg-white/[0.025] p-3 sm:grid-cols-[88px_minmax(0,1fr)]">
             <div className="relative aspect-[4/5] w-full max-w-[88px] self-start overflow-hidden rounded-xl border border-white/10 bg-zinc-950">
               <Image
-                src="/ADI.jpg"
+                src="/adi-profile.jpg"
                 alt="Aditya Purohit"
                 fill
                 sizes="(max-width: 640px) 72px, 88px"
