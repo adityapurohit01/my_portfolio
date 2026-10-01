@@ -14,7 +14,7 @@ export default function Awards() {
             <div key={name} className="grid gap-2 border-b border-white/10 px-5 py-4 last:border-0 sm:grid-cols-[48px_1fr_auto] sm:items-center">
               <span className="font-mono text-[10px] text-zinc-700">{String(index + 1).padStart(2, "0")}</span>
               <p className="text-sm font-medium text-white">{name}</p>
-              <p className="font-mono text-[10px] uppercase tracking-wider text-zinc-600 sm:text-right">{result}</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-cyan-300 sm:text-right">{result}</p>
             </div>
           ))}
         </div>
