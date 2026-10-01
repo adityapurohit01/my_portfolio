@@ -17,12 +17,6 @@ const timeline = [
         description: "Engineering AI-powered venture intelligence workflows, including automated web crawling and document retrieval for FLC alerting, alongside central repository integrations and backend automation."
     },
     {
-        year: "September 2026 - July 2027",
-        role: "Exchange Student",
-        company: "National Taiwan University (NTU), Taiwan",
-        description: "Exchange student at National Taiwan University, ranked #54 globally, focusing on advanced AI, machine learning, and AI systems."
-    },
-    {
         year: "2025 - Present",
         role: "Project Intern",
         company: "DRDO — Recruitment Assessment Centre (RAC)",
@@ -117,6 +111,38 @@ export default function About() {
                     </motion.div>
 
                 </div>
+
+                {/* Education */}
+                <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="mt-20"
+                    id="education"
+                >
+                    <h2 className="text-4xl md:text-5xl font-bold mb-10">Education</h2>
+
+                    <div className="grid md:grid-cols-2 gap-8">
+                        <div className="clay-card p-8">
+                            <span className="text-neon-purple text-sm font-bold tracking-wider mb-2 block">September 2026 - July 2027</span>
+                            <h3 className="text-2xl font-bold text-white mb-1">Exchange Student</h3>
+                            <h4 className="text-lg text-gray-400 mb-3">National Taiwan University (NTU), Taiwan</h4>
+                            <p className="text-gray-400 leading-relaxed">
+                                Studying as an exchange student at National Taiwan University, ranked #54 globally, with a focus on advanced AI, machine learning, and AI systems.
+                            </p>
+                        </div>
+
+                        <div className="clay-card p-8">
+                            <span className="text-neon-purple text-sm font-bold tracking-wider mb-2 block">2023 - 2027</span>
+                            <h3 className="text-2xl font-bold text-white mb-1">B.Tech Computer Science</h3>
+                            <h4 className="text-lg text-gray-400 mb-3">Bennett University</h4>
+                            <p className="text-gray-400 leading-relaxed">
+                                Focusing on Applied Artificial Intelligence, Neural Networks, and highly scalable inference systems.
+                            </p>
+                        </div>
+                    </div>
+                </motion.div>
 
 
                 </div>
