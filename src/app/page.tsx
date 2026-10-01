@@ -5,6 +5,7 @@ import Projects from "@/components/Projects";
 import About from "@/components/About";
 import Awards from "@/components/Awards";
 import Contact from "@/components/Contact";
+import SystemsEvalMatrix from "@/components/SystemsEvalMatrix";
 
 const systemPrinciples = [
   ["01", "system", "architecture"],
@@ -18,6 +19,7 @@ export default function Home() {
     <main className="min-h-screen overflow-x-hidden">
       <Navbar />
       <Hero />
+      <SystemsEvalMatrix />
       <section className="border-y border-white/10 bg-[#070709]">
         <div className="mx-auto grid max-w-7xl gap-px overflow-hidden px-6 text-sm sm:grid-cols-4 lg:px-8">
           {systemPrinciples.map(([n, a, b]) => (
