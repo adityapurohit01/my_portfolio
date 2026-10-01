@@ -17,6 +17,12 @@ const timeline = [
         description: "Engineering AI-powered venture intelligence workflows, including automated web crawling and document retrieval for FLC alerting, alongside central repository integrations and backend automation."
     },
     {
+        year: "August 2026 - Present",
+        role: "Exchange Student",
+        company: "National Taiwan University (NTU), Taiwan",
+        description: "Studying as an exchange student at National Taiwan University, ranked #54 globally, with a focus on advanced AI, machine learning, and AI systems."
+    },
+    {
         year: "2025 - Present",
         role: "Project Intern",
         company: "DRDO — Recruitment Assessment Centre (RAC)",
