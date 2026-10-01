@@ -68,7 +68,7 @@ export default function Projects() {
                   </div>
                 ))}
                 <div className="bg-cyan-300/[0.025] p-4 text-xs leading-6 text-zinc-500">
-                  <span className="mr-2 font-mono text-[9px] text-cyan-300/80">LIMIT</span>
+                  <span className="mr-2 font-mono text-[9px] text-cyan-300/80">04 · LIMIT</span>
                   <span className="text-zinc-300">{project.failureModes[0].failure}</span>
                 </div>
               </div>
