@@ -45,9 +45,16 @@ export default function Hero() {
         </div>
 
         <div className="min-w-0 space-y-4">
-          <div className="grid grid-cols-[72px_minmax(0,1fr)] gap-3 rounded-2xl border border-white/10 bg-white/[0.025] p-3 sm:grid-cols-[88px_minmax(0,1fr)]">
-            <div className="overflow-hidden rounded-xl border border-white/10 bg-zinc-950">
-              <Image src="/ADI.jpg" alt="Aditya Purohit" width={176} height={220} className="aspect-[4/5] w-full object-cover" priority />
+          <div className="grid grid-cols-[72px_minmax(0,1fr)] items-start gap-3 rounded-2xl border border-white/10 bg-white/[0.025] p-3 sm:grid-cols-[88px_minmax(0,1fr)]">
+            <div className="relative aspect-[4/5] w-full max-w-[88px] self-start overflow-hidden rounded-xl border border-white/10 bg-zinc-950">
+              <Image
+                src="/ADI.jpg"
+                alt="Aditya Purohit"
+                fill
+                sizes="(max-width: 640px) 72px, 88px"
+                className="object-cover object-[50%_16%]"
+                priority
+              />
             </div>
             <div className="min-w-0 p-1.5 sm:p-2">
               <div className="font-mono text-[10px] uppercase tracking-wider text-zinc-600">operator</div>
