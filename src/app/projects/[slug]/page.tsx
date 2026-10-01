@@ -74,6 +74,18 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           </section>
 
           <section>
+            <SectionLabel>Implementation Evidence</SectionLabel>
+            <div className="mt-5 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
+              {project.evidenceMetrics.map((item) => (
+                <div key={item.label} className="bg-[#08080a] p-5">
+                  <div className="font-mono text-[9px] uppercase tracking-[0.18em] text-zinc-700">{item.label}</div>
+                  <div className="mt-3 font-mono text-xl text-cyan-300">{item.value}</div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section>
             <SectionLabel>Evals &amp; Metrics</SectionLabel>
             <div className="mt-5">
               <EvalDashboard metrics={project.evals} />
