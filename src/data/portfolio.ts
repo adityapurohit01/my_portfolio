@@ -4,6 +4,7 @@ export type Project = {
   eyebrow: string;
   oneLiner: string;
   description: string;
+  primitive: string;
   status: string;
   tech: string[];
   github: string;
@@ -12,6 +13,7 @@ export type Project = {
   evals: { metric: string; value: string; note: string }[];
   decisions: { problem: string; decision: string }[];
   failureModes: { failure: string; handling: string }[];
+  iterations: { attempt: string; issue: string; change: string; evidence: string }[];
   trace: { title: string; payload: string };
   next: string[];
 };
@@ -19,6 +21,12 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: "ai-builder",
+    primitive: "A reusable stateful agent runtime for software tasks: planner + tools + sandbox + verifier + recovery loop.",
+    iterations: [
+      { attempt: "01", issue: "Single-shot generation hides failures and has no recovery boundary.", change: "Introduced explicit planning, coding, verification, and iteration states.", evidence: "State machine is implemented in the repository architecture." },
+      { attempt: "02", issue: "Long tasks accumulate irrelevant execution context.", change: "Added context summarization around the agent workflow.", evidence: "Context management is represented as a dedicated component." },
+      { attempt: "03", issue: "Code output is not trustworthy until it executes.", change: "Made build / test verification part of the agent loop.", evidence: "Verifier and failure feedback are first-class workflow stages." },
+    ],
     title: "AI Builder",
     eyebrow: "Autonomous developer tooling",
     oneLiner: "A stateful coding agent that plans, edits, executes, verifies, and recovers from software-engineering tasks.",
@@ -57,6 +65,12 @@ export const projects: Project[] = [
   },
   {
     slug: "intelliform",
+    primitive: "A semantic DOM-understanding and verification layer that can sit underneath browser agents.",
+    iterations: [
+      { attempt: "01", issue: "Naive DOM writes do not reliably update framework-managed state.", change: "Added framework-aware interaction paths.", evidence: "Repository includes framework-specific interaction handling." },
+      { attempt: "02", issue: "A browser event can succeed while application state remains unchanged.", change: "Added post-interaction verification.", evidence: "Verifier is a dedicated pipeline stage." },
+      { attempt: "03", issue: "Ambiguous controls create unsafe automation decisions.", change: "Added semantic confidence and sensitive-field blocking.", evidence: "Decision and safety controls are part of the implementation." },
+    ],
     title: "IntelliForm",
     eyebrow: "Browser automation infrastructure",
     oneLiner: "Framework-aware automation that discovers, understands, fills, and verifies complex web forms.",
@@ -95,6 +109,12 @@ export const projects: Project[] = [
   },
   {
     slug: "agentic-dating",
+    primitive: "A model-independent multi-agent evaluation harness with MCP tools and local memory/state.",
+    iterations: [
+      { attempt: "01", issue: "Purely generative judging makes scores difficult to audit.", change: "Moved scoring structure into explicit application logic and evidence.", evidence: "Structured scoring and evidence handling are implemented." },
+      { attempt: "02", issue: "Multi-agent experiments can become expensive and nondeterministic.", change: "Added deterministic mock mode, spend limits, and concurrency controls.", evidence: "These controls are part of the repository design." },
+      { attempt: "03", issue: "Conversation context grows across long interactions.", change: "Added persistent searchable memory.", evidence: "SQLite / FTS5-backed memory is part of the architecture." },
+    ],
     title: "Agentic Dating",
     eyebrow: "Multi-agent evaluation",
     oneLiner: "A multi-agent environment for grounded persona simulation, agent-agent dates, evidence-based reviews, and structured judging.",
@@ -133,6 +153,12 @@ export const projects: Project[] = [
   },
   {
     slug: "hierarchical-math-rag",
+    primitive: "A structure-aware multimodal retrieval layer for documents where hierarchy and asset ownership matter.",
+    iterations: [
+      { attempt: "01", issue: "Flat chunking can mix nearby mathematical concepts and figures.", change: "Introduced explicit document hierarchy.", evidence: "Chapter / topic / example structure is modeled directly." },
+      { attempt: "02", issue: "Figures can leak across neighboring sections.", change: "Added explicit asset/content ownership relationships.", evidence: "Ownership edges are represented in the repository." },
+      { attempt: "03", issue: "Silent embedding failures can produce plausible but wrong retrieval.", change: "Flagged embedding failure as an explicit reliability concern.", evidence: "Failure handling is now documented as a hardening requirement." },
+    ],
     title: "Hierarchical Math RAG",
     eyebrow: "Multimodal retrieval",
     oneLiner: "Structure-aware retrieval that preserves document hierarchy and keeps figures attached to the content they actually belong to.",
@@ -171,6 +197,12 @@ export const projects: Project[] = [
   },
   {
     slug: "med-le",
+    primitive: "A reusable full-stack pattern for multimodal retrieval applications with explicit service and data boundaries.",
+    iterations: [
+      { attempt: "01", issue: "Large retrieval contexts increase latency and dilute relevant evidence.", change: "Added chunking, top-k, metadata filtering, and context limits.", evidence: "Retrieval controls are implemented in the application stack." },
+      { attempt: "02", issue: "Retrieved text can contain untrusted instructions.", change: "Added prompt-injection defenses around retrieved context.", evidence: "Prompt-injection handling is an explicit application concern." },
+      { attempt: "03", issue: "Health-oriented outputs can be over-read as clinical conclusions.", change: "Documented the prototype nature and limits of the system.", evidence: "Medical-grade claims are intentionally avoided on the portfolio." },
+    ],
     title: "Med-Le",
     eyebrow: "Multimodal AI application",
     oneLiner: "A full-stack multimodal assistant combining document retrieval, food-photo analysis, structured services, and an application backend.",
