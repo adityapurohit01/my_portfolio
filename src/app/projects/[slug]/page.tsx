@@ -38,12 +38,12 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
   return (
     <main className="min-h-screen bg-[#050507]">
-      <div className="mx-auto max-w-6xl px-6 py-10 lg:px-8">
+      <div className="mx-auto max-w-6xl px-4 py-7 sm:px-6 sm:py-10 lg:px-8">
         <Link href="/#projects" className="inline-flex items-center gap-2 font-mono text-xs text-zinc-600 transition hover:text-white">
           <ArrowLeft size={14} /> /back-to-systems
         </Link>
 
-        <header className="pt-20">
+        <header className="pt-14 sm:pt-20">
           <div className="flex flex-wrap items-center gap-3 font-mono text-[10px] uppercase tracking-[0.22em] text-zinc-600">
             <span className="text-cyan-300">{project.status}</span>
             <span>·</span>
@@ -51,20 +51,20 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           </div>
 
           <div className="mt-5 flex flex-wrap items-end justify-between gap-6">
-            <h1 className="text-5xl font-semibold tracking-[-0.04em] text-white sm:text-7xl">{project.title}</h1>
+            <h1 className="text-4xl font-semibold leading-tight tracking-[-0.04em] text-white sm:text-7xl">{project.title}</h1>
             <a href={project.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.02] px-4 py-2 font-mono text-xs text-white transition hover:border-cyan-300/30 hover:text-cyan-200">
               <Github size={14} /> source
             </a>
           </div>
 
-          <p className="mt-7 max-w-4xl text-xl leading-9 text-zinc-300">{project.description}</p>
+          <p className="mt-6 max-w-4xl text-base leading-7 text-zinc-400 sm:mt-7 sm:text-xl sm:leading-9">{project.description}</p>
 
           <div className="mt-8 flex flex-wrap gap-2">
             {project.tech.map((tech) => <span key={tech} className="rounded border border-white/10 px-2.5 py-1 font-mono text-[10px] text-zinc-500">{tech}</span>)}
           </div>
         </header>
 
-        <div className="mt-16 space-y-20">
+        <div className="mt-12 space-y-14 sm:mt-16 sm:space-y-20">
           <section>
             <SectionLabel>System Architecture</SectionLabel>
             <div className="mt-5 rounded-2xl border border-white/10 bg-white/[0.02] p-5 sm:p-7">
