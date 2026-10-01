@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
+import CommandPalette from "@/components/CommandPalette";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], display: "swap" });
+const jetbrains = JetBrains_Mono({ subsets: ["latin"], display: "swap", variable: "--font-mono" });
 
 export const metadata: Metadata = {
   title: "Aditya Purohit — AI Engineer & Builder",
@@ -28,7 +30,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={inter.className + " bg-[#050507] text-zinc-100"}>{children}</body>
+      <body className={inter.className + " " + jetbrains.variable + " bg-[#050507] text-zinc-100"}>
+        {children}
+        <CommandPalette />
+      </body>
     </html>
   );
 }
