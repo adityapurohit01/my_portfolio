@@ -28,12 +28,6 @@ const timeline = [
         company: "Formskart",
         description: "Developed an AI-based college recommendation system using ML and built a Streamlit application with MySQL analytics."
     },
-    {
-        year: "2023 - 2027",
-        role: "B.Tech Computer Science",
-        company: "Bennett University",
-        description: "Focusing on Applied Artificial Intelligence, Neural Networks, and highly scalable inference systems."
-    }
 ];
 
 export default function About() {
