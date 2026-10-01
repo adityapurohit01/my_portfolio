@@ -11,7 +11,7 @@ const skills = [
 
 const timeline = [
     {
-        year: "2026 - Present",
+        year: "May 2026 - July 2026",
         role: "AI Engineer Intern",
         company: "Info Edge Ventures",
         description: "Engineering AI-powered venture intelligence workflows, including automated web crawling and document retrieval for FLC alerting, alongside central repository integrations and backend automation."
