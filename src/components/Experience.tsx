@@ -23,7 +23,7 @@ export default function Experience() {
                       {company}
                     </div>
                     {affiliation && (
-                      <div className="mt-1 font-mono text-[9px] uppercase tracking-[0.14em] text-cyan-300/60">
+                      <div className="mt-1 inline-block bg-gradient-to-r from-[#FF9933] via-white to-[#138808] bg-clip-text font-mono text-[9px] uppercase tracking-[0.14em] text-transparent">
                         {affiliation}
                       </div>
                     )}
