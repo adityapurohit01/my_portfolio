@@ -15,6 +15,7 @@ const systemPrinciples = [
   ["04", "failure", "modes"],
 ] as const;
 
+{/* sync: production */}
 export default function Home() {
   return (
     <main className="min-h-screen overflow-x-hidden">
