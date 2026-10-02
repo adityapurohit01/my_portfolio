@@ -269,7 +269,7 @@ export const projects: Project[] = [
 ];
 
 export const experience = [
-  { period: "2025 — Present", role: "Project Intern", company: "DRDO — Recruitment Assessment Centre", detail: "Worked on AI-driven recruitment automation, including semantic matching and candidate-shortlisting workflows." },
+  { period: "2025 — Present", role: "Project Intern", company: "DRDO — Recruitment Assessment Centre · Indian Ministry of Defence", detail: "Worked on AI-driven recruitment automation, including semantic matching and candidate-shortlisting workflows." },
   { period: "May 2026 — July 2026", role: "AI Engineer Intern", company: "Info Edge Ventures", detail: "Engineered AI-powered venture intelligence workflows, including automated web crawling and relevant-document discovery for FLC alerting and centralized repository integrations." },
   { period: "2025", role: "Tech Intern", company: "Formskart", detail: "Built an AI-assisted college recommendation system and analytics tooling." },
 ];
