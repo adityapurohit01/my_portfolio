@@ -6,6 +6,7 @@ import About from "@/components/About";
 import Awards from "@/components/Awards";
 import Contact from "@/components/Contact";
 import SystemsEvalMatrix from "@/components/SystemsEvalMatrix";
+import Experience from "@/components/Experience";
 
 const systemPrinciples = [
   ["01", "system", "architecture"],
@@ -32,6 +33,7 @@ export default function Home() {
         </div>
       </section>
       <Projects />
+      <Experience />
       <About />
       <Awards />
       <section className="mx-auto max-w-7xl px-6 pb-28 lg:px-8">
