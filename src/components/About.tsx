@@ -1,4 +1,4 @@
-import { capabilityGroups, experience } from "@/data/portfolio";
+import { capabilityGroups } from "@/data/portfolio";
 
 export default function About() {
   return (
@@ -37,22 +37,7 @@ export default function About() {
         </div>
       </section>
 
-      <section id="education" className="mx-auto max-w-7xl px-6 pb-28 lg:px-8">
-        <div className="grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 md:grid-cols-2">
-          <div className="bg-[#08080a] p-7">
-            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-cyan-300">2026 — 2027</p>
-            <h3 className="mt-3 text-2xl font-semibold text-white">National Taiwan University</h3>
-            <p className="mt-1 text-zinc-500">Exchange student · Taiwan</p>
-            <p className="mt-4 leading-7 text-zinc-600">Advanced coursework and exposure to AI, machine learning, and AI systems in Taiwan.</p>
-          </div>
-          <div className="bg-[#08080a] p-7">
-            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-cyan-300">2023 — 2027</p>
-            <h3 className="mt-3 text-2xl font-semibold text-white">Bennett University</h3>
-            <p className="mt-1 text-zinc-500">B.Tech · Computer Science</p>
-            <p className="mt-4 leading-7 text-zinc-600">Focused on applied AI, machine learning, software engineering, and intelligent systems.</p>
-          </div>
-        </div>
-      </section>
+
     </>
   );
 }
