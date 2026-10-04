@@ -37,27 +37,6 @@ export default function About() {
         </div>
       </section>
 
-      <section id="experience" className="mx-auto max-w-7xl px-6 pb-28 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr]">
-          <div>
-            <p className="font-mono text-[10px] font-medium uppercase tracking-[0.24em] text-cyan-300">/experience</p>
-            <h2 className="mt-4 text-4xl font-semibold tracking-tight text-white">Where I&apos;ve applied it.</h2>
-          </div>
-          <div className="space-y-px overflow-hidden rounded-2xl border border-white/10 bg-white/10">
-            {experience.map((item) => (
-              <article key={item.company} className="bg-[#08080a] p-6 sm:p-8">
-                <div className="flex flex-wrap items-center justify-between gap-3 font-mono text-[10px] uppercase tracking-wider">
-                  <p className="text-cyan-300">{item.period}</p>
-                  <p className="text-zinc-700">{item.company}</p>
-                </div>
-                <h3 className="mt-3 text-2xl font-semibold text-white">{item.role}</h3>
-                <p className="mt-3 max-w-3xl leading-7 text-zinc-500">{item.detail}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section id="education" className="mx-auto max-w-7xl px-6 pb-28 lg:px-8">
         <div className="grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 md:grid-cols-2">
           <div className="bg-[#08080a] p-7">
